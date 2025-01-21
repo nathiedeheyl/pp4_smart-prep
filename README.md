@@ -19,6 +19,9 @@
 - Each recipe has predefined grocery items (ingredients) with specified quantities per serving
   - Grocery items for selected recipes in the quantity defined by selected servings is added to the shopping list
 
+Update 21.01.2025:
+Django model helper method or separate utility function for the merging logic of shopping items.
+
 ### Could-Have features
 
 **P0**
@@ -28,6 +31,7 @@
 **P1**
 - Categorized Shopping List
   - Group grocery items into categories (e.g., produce, dairy, grains) in the shopping list
+- Bulk action: Deselect all recipes/delete all items on the shopping list
 
 **P2**
 - Exemplary Weekly Meal Plan
@@ -35,7 +39,7 @@
 
 ### Won’t-Have features
 
-
+- For now: one-to-one relationship between a user and their shopping list. Future feature: Shared Shopping Lists! (refactor the model for a many-to-many relationship model for multiple users being linked to one shopping list)
 - User profile page apart from shopping list
 - Comments and likes for recipes
 - Portion size options for recipes (small, regular, large)
@@ -49,3 +53,19 @@ Topics:
 - Authentication 
 - Shopping List
 - Recipes
+
+## Data
+
+### ERD 
+
+1. User to ShoppingList: Each user can have one shopping list (1:N relationship)
+2. ShoppingList to ShoppingItem: A shopping list can have multiple items (1:N relationship)
+3. Recipe to RecipeIngredient: A recipe can include multiple ingredients (1:N relationship)
+4. RecipeIngredient to ShoppingItem: Ingredients from recipes contribute to items in the shopping list through calculations (conceptual connection?)
+
+<details>
+<summary>ER Diagram (click me)</summary>
+
+![ER Diagram](assets/images/ShoppingListERD.png)
+
+</details>
