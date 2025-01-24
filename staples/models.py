@@ -54,3 +54,8 @@ class StapleItem(models.Model):
     )
     created_on = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return f"Staple Item: {self.name} | From User {self.user}"
+
+    class Meta:
+        ordering = ["-updated_at", "user"]
