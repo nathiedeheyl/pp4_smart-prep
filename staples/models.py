@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
 
 MEASUREMENT_UNITS = [
     ('kg', 'Kilogram'),
@@ -39,7 +40,7 @@ CATEGORIES = [
 # Create your models here.
 class StapleItem(models.Model):
     name = models.CharField(max_length=100)
-    quantity = models.FloatField()
+    quantity = models.FloatField(validators=[MinValueValidator(limit_value=0)])
     measurement_unit = models.CharField(
         max_length=50, 
         choices=MEASUREMENT_UNITS
