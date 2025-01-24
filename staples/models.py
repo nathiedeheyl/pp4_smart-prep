@@ -41,11 +41,11 @@ class StapleItem(models.Model):
     name = models.CharField(max_length=100)
     quantity = models.FloatField()
     measurement_unit = models.CharField(
-        max_length=None, 
+        max_length=50, 
         choices=MEASUREMENT_UNITS
     )
     category = models.CharField(
-        max_length=None,
+        max_length=50,
         choices=CATEGORIES
     )
     user = models.ForeignKey(
