@@ -39,7 +39,7 @@ CATEGORIES = [
 # Create your models here.
 class StapleItem(models.Model):
     name = models.CharField(max_length=100)
-    quantity = models.DecimalField(max_digits=6, decimal_places=2)
+    quantity = models.FloatField()
     measurement_unit = models.CharField(
         max_length=None, 
         choices=MEASUREMENT_UNITS
