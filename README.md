@@ -52,6 +52,7 @@ Django model helper method or separate utility function for the merging logic of
 Topics: 
 - Authentication 
 - Shopping List
+- Staples (List)
 - Recipes
 
 ## Data
