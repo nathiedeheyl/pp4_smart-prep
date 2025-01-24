@@ -52,4 +52,4 @@ class StapleItem(models.Model):
         User, on_delete=models.CASCADE, related_name="staple_items"
     )
     created_on = models.DateTimeField(auto_now_add=True)
-    last_modified = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True)
