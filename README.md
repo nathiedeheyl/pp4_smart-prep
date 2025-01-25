@@ -57,7 +57,7 @@ Topics:
 
 ## Data
 
-### ERD 
+### ERD (tbd)
 
 1. User to ShoppingList: Each user can have one shopping list (1:N relationship)
 2. ShoppingList to ShoppingItem: A shopping list can have multiple items (1:N relationship)
@@ -67,6 +67,15 @@ Topics:
 <details>
 <summary>ER Diagram (click me)</summary>
 
-![ER Diagram](assets/images/ShoppingListERD.png)
+![ER Diagram](assets/images/wireframes/erd_database_0.png)
+
+</details>
+
+### Models
+
+<details>
+<summary>Staple Items Model (click me)</summary>
+
+![Model StapleItems](assets/images/wireframes/erd_model_1.png)
 
 </details>
