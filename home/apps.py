@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ShoppingListConfig(AppConfig):
+class HomePageContent(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'home'
