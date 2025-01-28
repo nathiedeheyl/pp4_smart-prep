@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block home_page_content %}
+
+<!-- Place for the personalized greeting -->
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      {% if user.is_authenticated %}
+      <h1>Hello, {{ user.first_name }}!</h1>
+      {% else %}
+      <h1>Hello there!</h1>
+      <p>
+        Do you already have an account? Then please
+        <a href="{% url 'login' %}">log in!</a>
+      </p>
+      <p>
+        You don't have an account? You can sign up here:
+        <a href="{% url 'register' %}">CLICK TO REGISTER</a>
+      </p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Main Home Page Content -->
+<main>
+  <!-- Bootstrap grid layout -->
+  <div class="container">
+    <div class="row">
+      <div class="symbol_icon col-4">
+        <img
+          src="{% static 'images/shopping_list_icon.png' %}"
+          alt="Shopping List Icon"
+        />
+      </div>
+
+      <div id="welcome_text" class="col-8">
+        <h1>Here's your new Smart Prep Shopping List</h1>
+        <p>
+          Smart Prep helps you organize and manage your essential shopping list
+          with ease.<br />
+          Key features include creating, editing, and saving your favorite
+          staples.<br />
+          Experience a smarter way to stay prepared.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock home_page_content %}

@@ -6,7 +6,11 @@ def render_home(request):
     """
     Renders the home page
     """
-    home_content = HomePageContent.objects.all().order_by('-updated_at').first()
+    home_content = (
+        HomePageContent.objects.all()
+        .order_by('-updated_at')
+        .first()
+    )
 
     return render(
         request,
