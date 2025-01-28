@@ -1,0 +1,82 @@
+{% load static %}
+{% url 'home' as home_url %}
+
+<!DOCTYPE html>
+<html class="h-100" lang="en">
+
+<head>
+    <title>Smart Prep</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}"> 
+
+</head>
+
+<body class="d-flex flex-column h-100 main-bg">
+
+    <!-- Nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}" aria-label="Go to Home Page">
+                <i class="fas fa-clipboard-list"></i>
+            </a>
+            <!-- Toggle down menu? -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{% url 'home' %}" aria-label="Go to Home Page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" aria-label="Go to Registration Page">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" aria-label="Go to Login Page">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-shrink-0 main-bg">
+
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 dark-bg">
+        <p class="m-0 text-center text-white">Developer: Nathalie von Heyl</p>
+        <p class="m-0 text-center text-white">
+            Follow us on Social Media: 
+            <a href="https://facebook.com" target="_blank" aria-label="Link to Facebook (opens in a new tab)"><i class="fab fa-facebook-square ms-3"></i></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Link to Twitter (opens in a new tab)"><i class="fab fa-twitter-square ms-3"></i></a>
+            <a href="https://instagram.com" target="_blank" aria-label="Link to Instagram(opens in a new tab)"><i class="fab fa-instagram-square ms-3"></i></a>
+            <a href="https://youtube.com" target="_blank" aria-label="Link to YouTube (opens in a new tab)"><i class="fab fa-youtube-square ms-3"></i></a>
+        </p>
+        
+    </footer>
+
+    <!-- Font Awesome Toolkit -->
+    <script src="https://kit.fontawesome.com/b557307522.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
