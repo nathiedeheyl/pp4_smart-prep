@@ -76,6 +76,31 @@ As a user, I can ...
 
 ## Features
 
+### Existing features
+
+#### Header
+<details>
+<summary>Expand to see header features</summary>
+
+<br>
+
+![Whole header](static/images/features/1_feature_header.png)
+<br>The Header feature
+
+![Brand + Link](static/images/features/2_feature_header.png)
+<br>The Brand Name and Link to Home Page
+
+![Responsive navigation bar](static/images/features/3_feature_header.png)
+<br>Navigation bar
+
+![Responsive navigation bar](static/images/features/4_feature_header.png)
+<br>Navigation bar: Responsive with toggle down menu for mobile screens
+
+![Footer with Social Media Links](static/images/features/5_feature_footer.png)
+<br>Footer Feature with Social Media Links
+
+</details>
+
 ### MVP: Must-have features
 
 - User Authentication:
