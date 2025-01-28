@@ -127,6 +127,11 @@ As a user, I can ...
 
 </details>
 
+## Technologies
+
+- Font Awesome for icons
+- Favicon.io for converting icon to favicon
+
 ## Agile Methodologies
 
 Github Project + Link
