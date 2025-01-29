@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- User's Personal Staples List -->
+ <h2>My Staples List</h2>
+ {% if staples %}
+    <ul>
+        {% for item in staples%}
+            <li>{{ item.name }} {{ item.quantity }}</li>
+        {% endfor %}
+    </ul>
+ {% else %}
+    <p>You have no items yet in your staples list.</p>
+ {% endif %}
+
+{% endblock content %}
