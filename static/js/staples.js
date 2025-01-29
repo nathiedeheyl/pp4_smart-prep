@@ -1,6 +1,7 @@
 const editButtons = document.getElementsByClassName("edit-btn");
 const stapleForm = document.getElementById("comment_form");
 const submitButton = document.getElementById("submitButton");
+const deleteButtons = document.getElementsByClassName("delete-btn");
 
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
@@ -28,4 +29,29 @@ for (let button of editButtons) {
             console.error("Could not parse staple content:", stapleContent);
         }
     });
+}
+
+for (let button of deleteButtons) {
+    button.addEventListener("click", (e) => {
+        let stapleId = e.target.getAttribute("staple_id");
+
+        if (confirm("Are you sure you want to delete this item?")) {
+            fetch(`/staples/delete/${stapleId}/`, {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": getCSRFToken(),
+                }
+            }).then(response => {
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    alert("Error deleting item.");
+                }
+            });
+        }
+    });
+}
+
+function getCSRFToken() {
+    return document.querySelector('[name=csrfmiddlewaretoken]').value;
 }
