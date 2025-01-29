@@ -9,12 +9,13 @@ def render_staples_list(request):
     Renders the user's personal staples list
     """
     staples = StapleItem.objects.filter(user=request.user)
-    add_staple = StapleHandling
+    form = StapleHandling
     
     return render(
         request, 
         "staples/staples.html", 
         {
             "staples": staples,
+            "comment_form": form,
         },
     )
