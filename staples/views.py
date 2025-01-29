@@ -50,3 +50,18 @@ def edit_staple(request, staple_id):
             messages.ERROR, 'Error updating staple item!')
         
     return HttpResponseRedirect(reverse('staples'))
+
+@login_required
+def delete_staple(request, staple_id):
+    """
+    View to delete staples list items
+    """
+
+    staple = get_object_or_404(StapleItem, id=staple_id)
+
+    if staple.user == request.user:
+        if request.method == "POST":
+            staple.delete()
+            return redirect("staples")
+    else:
+        return redirect("staples")

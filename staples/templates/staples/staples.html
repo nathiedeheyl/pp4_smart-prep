@@ -16,7 +16,8 @@
                             {% for item in staples%}
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <span id="staple{{ item.id }}">{{ item.name }} {{ item.quantity }} {{ item.measurement_unit }}</span>
-                                    <button class="btn edit-btn btn-light" staple_id="{{ item.id }}">Edit</button>
+                                    <button class="btn edit-btn btn-light btn-sm" staple_id="{{ item.id }}">Edit</button>
+                                    <button class="btn delete-btn btn-outline-danger btn-sm" staple_id="{{ item.id }}">Delete</button>
                                 </li>
                             {% endfor %}
                         </ul>
