@@ -9,7 +9,15 @@ def render_staples_list(request):
     Renders the user's personal staples list
     """
     staples = StapleItem.objects.filter(user=request.user)
-    form = StapleHandling
+
+    if request.method == "POST":
+        form = StapleHandling(request.POST)
+        if form.is_valid():
+            staple = form.save(commit=False)
+            staple.user = request.user
+            staple.save()
+
+    form = StapleHandling()
     
     return render(
         request, 
