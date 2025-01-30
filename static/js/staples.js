@@ -34,27 +34,6 @@ for (let button of editButtons) {
     });
 }
 
-// for (let button of deleteButtons) {
-//     button.addEventListener("click", (e) => {
-//         let stapleId = e.target.getAttribute("staple_id");
-
-//         if (confirm("Are you sure you want to delete this item?")) {
-//             fetch(`/staples/delete/${stapleId}/`, {
-//                 method: "POST",
-//                 headers: {
-//                     "X-CSRFToken": getCSRFToken(),
-//                 }
-//             }).then(response => {
-//                 if (response.ok) {
-//                     window.location.reload();
-//                 } else {
-//                     alert("Error deleting item.");
-//                 }
-//             });
-//         }
-//     });
-// }
-
 /**
 * Initializes deletion functionality for the provided delete buttons.
 * 
@@ -68,12 +47,7 @@ for (let button of editButtons) {
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
       let stapleId = e.target.getAttribute("staple_id");
-      console.log('Staple ID:', stapleId);
       deleteConfirm.href = `/staples/delete_staple/${stapleId}`;
       deleteModal.show();
     });
   }
-
-// function getCSRFToken() {
-//     return document.querySelector('[name=csrfmiddlewaretoken]').value;
-// }
