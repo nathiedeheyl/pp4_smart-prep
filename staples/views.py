@@ -67,4 +67,4 @@ def delete_staple(request, staple_id):
     # else:
     #     messages.add_message(request, messages.ERROR, 'Item cannot be deleted!') 
 
-    return render(request, 'staples/confirm_delete.html', {'staple': staple})  
+    return redirect('staples')
