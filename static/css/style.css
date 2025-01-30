@@ -48,6 +48,10 @@ body {
     text-align: right;
 }
 
+.greeting p {
+    text-align: right;
+}
+
 /* @media screen and (max-width: 520px) {
     nav, footer {
         min-width: 100%;

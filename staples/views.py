@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import StapleItem
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -31,7 +31,7 @@ def render_staples_list(request):
     )
 
 
-@login_required
+# @login_required
 def edit_staple(request, staple_id):
     """
     View to edit staples list items
@@ -51,7 +51,7 @@ def edit_staple(request, staple_id):
         
     return HttpResponseRedirect(reverse('staples'))
 
-@login_required
+# @login_required
 def delete_staple(request, staple_id):
     """
     View to delete staples list items
@@ -60,8 +60,11 @@ def delete_staple(request, staple_id):
     staple = get_object_or_404(StapleItem, id=staple_id)
 
     if staple.user == request.user:
-        if request.method == "POST":
-            staple.delete()
-            return redirect("staples")
-    else:
-        return redirect("staples")
+        # if request.method == "POST":
+        staple.delete()
+        messages.add_message(request, messages.SUCCESS, 'Item deleted!')
+        return redirect('staples')
+    # else:
+    #     messages.add_message(request, messages.ERROR, 'Item cannot be deleted!') 
+
+    return render(request, 'staples/confirm_delete.html', {'staple': staple})  

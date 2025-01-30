@@ -1,7 +1,10 @@
 const editButtons = document.getElementsByClassName("edit-btn");
 const stapleForm = document.getElementById("comment_form");
 const submitButton = document.getElementById("submitButton");
+
+const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deleteButtons = document.getElementsByClassName("delete-btn");
+const deleteConfirm = document.getElementById("deleteConfirm");
 
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
@@ -31,27 +34,46 @@ for (let button of editButtons) {
     });
 }
 
+// for (let button of deleteButtons) {
+//     button.addEventListener("click", (e) => {
+//         let stapleId = e.target.getAttribute("staple_id");
+
+//         if (confirm("Are you sure you want to delete this item?")) {
+//             fetch(`/staples/delete/${stapleId}/`, {
+//                 method: "POST",
+//                 headers: {
+//                     "X-CSRFToken": getCSRFToken(),
+//                 }
+//             }).then(response => {
+//                 if (response.ok) {
+//                     window.location.reload();
+//                 } else {
+//                     alert("Error deleting item.");
+//                 }
+//             });
+//         }
+//     });
+// }
+
+/**
+* Initializes deletion functionality for the provided delete buttons.
+* 
+* For each button in the `deleteButtons` collection:
+* - Retrieves the associated comment's ID upon click.
+* - Updates the `deleteConfirm` link's href to point to the 
+* deletion endpoint for the specific comment.
+* - Displays a confirmation modal (`deleteModal`) to prompt 
+* the user for confirmation before deletion.
+*/
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
-        let stapleId = e.target.getAttribute("staple_id");
-
-        if (confirm("Are you sure you want to delete this item?")) {
-            fetch(`/staples/delete/${stapleId}/`, {
-                method: "POST",
-                headers: {
-                    "X-CSRFToken": getCSRFToken(),
-                }
-            }).then(response => {
-                if (response.ok) {
-                    window.location.reload();
-                } else {
-                    alert("Error deleting item.");
-                }
-            });
-        }
+      let stapleId = e.target.getAttribute("staple_id");
+      console.log('Staple ID:', stapleId);
+      deleteConfirm.href = `/staples/delete_staple/${stapleId}`;
+      deleteModal.show();
     });
-}
+  }
 
-function getCSRFToken() {
-    return document.querySelector('[name=csrfmiddlewaretoken]').value;
-}
+// function getCSRFToken() {
+//     return document.querySelector('[name=csrfmiddlewaretoken]').value;
+// }
